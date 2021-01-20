@@ -15,7 +15,7 @@ Mathematical genius [Sophie Germain](https://core.ac.uk/download/pdf/36683994.pd
 Building on this Kirchoff wrote down the partial differential equation that describes a vibrating elastic plate.
 Turns out it's just the biharmonic operator (apply the usual harmonic operator, the Laplacian, twice).
 
-<img src="https://latex.codecogs.com/svg.latex?\Large\nabla^4w(x,y)=f(x,y)"/>
+<img src="https://render.githubusercontent.com/render/math?math=\Large\nabla^4w(x,y)=f(x,y)"/>
 
 A partial differential equation like this is a bit pointless without boundary conditions.
 So we'll need to use boundary conditions that correspond to a square plate with free edges.
