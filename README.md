@@ -1,8 +1,15 @@
 # chladni-plates
 
 When you vibrate a free rigid surface like a plate of metal such that it resonates it will be divided into regions that vibrate in opposite directions.
-We call the boundaries of these regions "nodal lines", these are the bits of the plates that just don't move up or down.
+We call the boundaries of these regions "nodal lines", these are the bits of the plates that don't move up or down.
 A _Chladni figure_ is just a picture of these nodal lines for a free (edges unclamped) plate.
+
+
+A nice way to visualise this is if you have a metal plate, some sand, and like a giant violin bow.
+Sprinkle the sand on the plate and use the bow to "play" the plate like you would a violin.
+When you find a resonant frequency at which to "play" the plate the sand will naturally move to the nodal lines because those are the bits of the plate that don't move.
+I remember seeing this done in first year physics when I was a young student.
+Anyway here's a [video](https://www.youtube.com/watch?v=wvJAgrUBF4w&ab_channel=brusspup) of a more professional version where they have a tone generator instead of a giant violin bow.
 
 The idea behind this repo is to draw these because I think they're pretty!
 Like I wouldn't be surprised if I've made a mistake trying to rob the solution for the 4th order partial differential equation I'm basing the pictures on!
