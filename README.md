@@ -24,7 +24,13 @@ sbt compile
 sbt run
 ```
 
-And then just follow the text prompts.
+And then just follow the text prompts!
+If the output looks a bit funny I'd suggest trying a smaller font in your terminal :p
+
+## TODO
+- add ability to make a nice PNG (or something) instead of just spitting out to console
+- make the PNG lovely and colourful: like I could colour it by just the value of `w`
+- contour plot or 3D plot might be fun too
 
 ## Story Time
 
