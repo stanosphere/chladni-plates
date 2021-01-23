@@ -17,6 +17,8 @@ But as long as they're pretty I don't really care that much <3 <3 <3
 
 ## Run
 
+At the moment this is just a really simple command line thing that will spit out some beautiful ascii art.
+
 Assuming you have scala and sbt installed:
 
 ```commandline
@@ -26,6 +28,10 @@ sbt run
 
 And then just follow the text prompts!
 If the output looks a bit funny I'd suggest trying a smaller font in your terminal :p
+
+### Sample Output
+
+![](pictures/screenshot-of-console.png?raw=true)
 
 ## TODO
 - add ability to make a nice PNG (or something) instead of just spitting out to console
