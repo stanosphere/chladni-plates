@@ -6,6 +6,9 @@ import scala.math.{cos, cosh, sin, sinh, sqrt, Pi}
 
 object EigenFunctions {
   // an eigenfunction of the biharmonic operator for a square plate with open edges
+  // I have chosen this form since it yields more interesting results than just using `u(m)(x) * u(n)(y)` for example
+  // Indeed any linear combination `u(m)(x) * u(n)(y)` must also be an eigenfunction
+  // It just so happens that using this as a basis function gives you nice patterns!
   def w(m: Int, n: Int)(x: Double, y: Double): Double = u(m)(x) * u(n)(y) + u(n)(x) * u(m)(y)
 
   /* An eigenfunction of the free one dimensional bar

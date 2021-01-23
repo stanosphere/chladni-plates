@@ -31,6 +31,9 @@ If the output looks a bit funny I'd suggest trying a smaller font in your termin
 - add ability to make a nice PNG (or something) instead of just spitting out to console
 - make the PNG lovely and colourful: like I could colour it by just the value of `w`
 - contour plot or 3D plot might be fun too
+- I've made a particular choice of basis function that yields interesting patterns.
+I should probably define the sort of accompanying basis function `w-` and introduce a way of taking linear combinations
+Because briefly experimenting you can get other nice patterns
 
 ## Story Time
 
