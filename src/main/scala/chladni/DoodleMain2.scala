@@ -16,23 +16,22 @@ object Timed {
 }
 
 object DoodleMain2 extends App {
-  val coords = Timed("making coord array")((BigDecimal(-1.0) to BigDecimal(1.0) by BigDecimal(0.001)).map(_.toDouble))
+  val coords =
+    Timed("making coord array")((BigDecimal(-1.0) to BigDecimal(1.0) by BigDecimal(0.001)).map(_.toDouble).zipWithIndex)
 
-  val q                = Timed("evaluating function to make value")(makeSquareGrid(coords)(EigenFunctions.w(3, 8)))
-  val normalisedValues = Timed("normilisation")(normalise(q))
-  val flattenedCoords  =
-    Timed("flattening down the coords") {
-      for {
-        (ys, x)    <- normalisedValues.map(_.zipWithIndex).zipWithIndex
-        (value, y) <- ys
-      } yield (x, y, value)
-    }
+  val something = Timed("calculating values") {
+    for {
+      (x_val, x_int) <- coords
+      (y_val, y_int) <- coords
+    } yield (x_int, y_int, EigenFunctions.w(3, 8)(x_val, y_val))
+  }
 
-  val out = new BufferedImage(q.length, q.length, BufferedImage.TYPE_INT_RGB)
+  val normalisedValues = Timed("normalisation")(normalise(something))
 
-  Timed("updateing the bufferedimage") {
-    flattenedCoords.foreach { case (x, y, value) => out.setRGB(x, y, getColour(value)) }
+  val out = new BufferedImage(coords.length, coords.length, BufferedImage.TYPE_INT_RGB)
 
+  Timed("updating the bufferedimage") {
+    something.foreach { case (x, y, value) => out.setRGB(x, y, getColour(value)) }
   }
 
   Timed("writing the image to file") {
@@ -45,14 +44,10 @@ object DoodleMain2 extends App {
       case _ => 0x000000
     }
 
-  def normalise(grid: List[List[Double]]): List[List[Double]] = {
-    val absoluteMax = math.max(math.abs(grid.flatten.max), math.abs(grid.flatten.min))
-    grid.map(_.map(_ / absoluteMax))
+  def normalise(grid: IndexedSeq[(Int, Int, Double)]): IndexedSeq[(Int, Int, Double)] = {
+    val values      = grid.map { case (_, _, value) => value }
+    val absoluteMax = math.max(math.abs(values.max), math.abs(values.min))
+    grid.map { case (x, y, value) => (x, y, value / absoluteMax) }
   }
 
-  private def makeSquareGrid(coords: IndexedSeq[Double])(f: (Double, Double) => Double): List[List[Double]] =
-    (for { x <- coords; y <- coords } yield f(x, y))
-      .grouped(coords.length)
-      .toList
-      .map(_.toList)
 }
