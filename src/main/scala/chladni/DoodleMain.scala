@@ -8,6 +8,7 @@ import doodle.effect.Writer._
 
 object DoodleMain extends App {
 
+
   val coords = (BigDecimal(-1.0) to BigDecimal(1.0) by BigDecimal(0.005)).map(_.toDouble)
 
   val q          = makeSquareGrid(coords)(EigenFunctions.w(5, 6))
