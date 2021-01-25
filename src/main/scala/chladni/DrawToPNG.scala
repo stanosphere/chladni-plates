@@ -1,18 +1,18 @@
 package chladni
 
 import java.awt.image.BufferedImage
-import java.io.File
 
+import better.files._
 import cats.effect.IO
 import javax.imageio.ImageIO
 
 object DrawToPNG {
-  def draw(m: Int, n: Int)(filePath: String): IO[Unit] = {
+  def draw(m: Int, n: Int)(fileName: String): IO[String] = {
     val coords            = (BigDecimal(-1.0) to BigDecimal(1.0) by BigDecimal(0.001)).map(_.toDouble).zipWithIndex
     val zValues           = calculateZValues(coords)(EigenFunctions.w(m, n))
     val normalisedZValues = normalise(zValues)
 
-    writeImage(normalisedZValues, coords.length, filePath)
+    writeImage(normalisedZValues, coords.length, fileName)
   }
 
   def calculateZValues(
@@ -29,13 +29,17 @@ object DrawToPNG {
     grid.map { case (x, y, value) => (x, y, value / absoluteMax) }
   }
 
-  def writeImage(normalisedValues: IndexedSeq[(Int, Int, Double)], size: Int, filePath: String): IO[Unit] =
+  // This function is reasonably filthy but it appears to work so I am pleased
+  def writeImage(normalisedValues: IndexedSeq[(Int, Int, Double)], size: Int, fileName: String): IO[String] =
     IO {
-      val out = new BufferedImage(size, size, BufferedImage.TYPE_INT_RGB)
+      val outputImage = new BufferedImage(size, size, BufferedImage.TYPE_INT_RGB)
+      val file        = File(s"output/$fileName.png")
+      val jFile       = file.createFileIfNotExists(createParents = true).toJava
 
-      normalisedValues.foreach { case (x, y, value) => out.setRGB(x, y, getColour(value)) }
+      normalisedValues.foreach { case (x, y, value) => outputImage.setRGB(x, y, getColour(value)) }
+      ImageIO.write(outputImage, "png", jFile)
 
-      ImageIO.write(out, "png", new File(filePath))
+      jFile.getAbsolutePath
     }
 
   def getColour(value: Double): Int =
