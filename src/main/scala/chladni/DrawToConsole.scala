@@ -26,6 +26,6 @@ object DrawToConsole {
   private val rowToStringRep: List[Double] => String =
     _.map(i => if (closeToZero(i)) "  " else "##").mkString
 
-  def showInConsole(grid: List[List[Double]]): Unit =
+  private def showInConsole(grid: List[List[Double]]): Unit =
     grid.foreach(rowToStringRep andThen println)
 }

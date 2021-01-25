@@ -15,7 +15,7 @@ object EigenFunctions {
    * i.e. u_m'''' = km^4 * u_m
    * with B.C.s u_m''' = u_m'' = 0 at x = {-1, 1}
    */
-  private def u(m: Int)(x: Double): Double = {
+  def u(m: Int)(x: Double): Double = {
     if (m == 0) 1 / sqrt(2)
     else if (m == 1) sqrt(3 / 2) * x
     else if (isEven(m))
