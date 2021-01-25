@@ -34,10 +34,15 @@ If the ascii output looks a bit funny I'd suggest trying a smaller font in your 
 ### Sample Output
 
 Here's what a console output looks like
+
+<img src="https://github.com/stanosphere/chladni-plates/blob/main/pictures/5-7-hiish-res.png" width="400">
+
 ![](pictures/screenshot-of-console.png)
 
 And here's a what a png output looks like (it has different parameters to the console one above)
 ![](pictures/5-7-hiish-res.png)
+
+<img src="https://github.com/stanosphere/chladni-plates/blob/main/pictures/5-7-hiish-res.png" width="400">
 
 ## TODO
 - add ability to make a nice PNG (or something) instead of just spitting out to console
