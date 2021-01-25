@@ -40,6 +40,7 @@ If the output looks a bit funny I'd suggest trying a smaller font in your termin
 - I've made a particular choice of basis function that yields interesting patterns.
 I should probably define the sort of accompanying basis function `w-` and introduce a way of taking linear combinations
 Because briefly experimenting you can get other nice patterns
+- I've been playing around with parameters and i think it would be fun to add a random image generator for this sort of thing
 
 ## Story Time
 
