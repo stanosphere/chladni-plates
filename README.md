@@ -35,12 +35,9 @@ If the ascii output looks a bit funny I'd suggest trying a smaller font in your 
 
 Here's what a console output looks like
 
-<img src="https://github.com/stanosphere/chladni-plates/blob/main/pictures/5-7-hiish-res.png" width="400">
-
-![](pictures/screenshot-of-console.png)
+<img src="https://github.com/stanosphere/chladni-plates/blob/main/pictures/screenshot-of-console.png" width="400">
 
 And here's a what a png output looks like (it has different parameters to the console one above)
-![](pictures/5-7-hiish-res.png)
 
 <img src="https://github.com/stanosphere/chladni-plates/blob/main/pictures/5-7-hiish-res.png" width="400">
 
