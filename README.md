@@ -17,7 +17,9 @@ But as long as they're pretty I don't really care that much <3 <3 <3
 
 ## Run
 
-At the moment this is just a really simple command line thing that will spit out some beautiful ascii art.
+At the moment this is just a really simple command line thing that will first spit out some beautiful ascii art.
+
+It will then ask if you want to save a PNG representation of the plot which will be much higher res.
 
 Assuming you have scala and sbt installed:
 
@@ -27,11 +29,15 @@ sbt run
 ```
 
 And then just follow the text prompts!
-If the output looks a bit funny I'd suggest trying a smaller font in your terminal :p
+If the ascii output looks a bit funny I'd suggest trying a smaller font in your terminal :p
 
 ### Sample Output
 
-![](pictures/screenshot-of-console.png?raw=true)
+Here's what a console output looks like
+![](pictures/screenshot-of-console.png)
+
+And here's a what a png output looks like (it has different parameters to the console one above)
+![](pictures/5-7-hiish-res.png)
 
 ## TODO
 - add ability to make a nice PNG (or something) instead of just spitting out to console
