@@ -15,6 +15,7 @@ The idea behind this repo is to draw these because I think they're pretty!
 Like I wouldn't be surprised if I've made a mistake trying to rob the solution for the 4th order partial differential equation I'm basing the pictures on!
 But as long as they're pretty I don't really care that much <3 <3 <3
 
+I've added 100 images of some of the lower eigenmodes under `/pictures/low-eigenmodes`
 ## Run
 
 At the moment this is just a really simple command line thing that will first spit out some beautiful ascii art.

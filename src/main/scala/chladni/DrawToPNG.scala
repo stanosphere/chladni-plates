@@ -7,13 +7,13 @@ import cats.effect.IO
 import javax.imageio.ImageIO
 
 object DrawToPNG {
-  def draw(m: Int, n: Int)(fileName: String): IO[String] = {
-    val coords            = (BigDecimal(-1.0) to BigDecimal(1.0) by BigDecimal(0.001)).map(_.toDouble).zipWithIndex
-    val zValues           = calculateZValues(coords)(EigenFunctions.w(m, n))
-    val normalisedZValues = normalise(zValues)
-
-    writeImage(normalisedZValues, coords.length, fileName)
-  }
+  def draw(m: Int, n: Int)(fileName: String): IO[String] =
+    for {
+      coords           <- IO((BigDecimal(-1.0) to BigDecimal(1.0) by BigDecimal(0.001)).map(_.toDouble).zipWithIndex)
+      zValues           = calculateZValues(coords)(EigenFunctions.w(m, n))
+      normalisedZValues = normalise(zValues)
+      fullFilePath     <- writeImage(normalisedZValues, coords.length, fileName)
+    } yield fullFilePath
 
   def calculateZValues(
       coords: IndexedSeq[(Double, Int)]
