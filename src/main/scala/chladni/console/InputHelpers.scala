@@ -26,6 +26,19 @@ object InputHelpers {
     go
   }
 
+  def askForSeedInput: String => IO[Long] = {
+
+    def go(message: String): IO[Long] =
+      for {
+        _           <- putStrLn(message)
+        input       <- readLn
+        messageOrRes = input.toLongOption.toRight(s""""$input" is not an long""")
+        res         <- messageOrRes.fold(go, IO(_))
+      } yield res
+
+    go
+  }
+
   def askYesOrNoQuestion: String => IO[Boolean] = {
 
     def processInput(input: String): Either[String, Boolean] =

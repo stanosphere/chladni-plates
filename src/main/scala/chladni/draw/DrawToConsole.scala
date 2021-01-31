@@ -1,15 +1,14 @@
 package chladni.draw
 
 import cats.effect.IO
-import chladni.EigenFunctions.{w => freeSquarePlateEigenFunction}
 import chladni.utils.MathsHelpers.areApproxEqual
 
 object DrawToConsole {
 
-  def draw(m: Int, n: Int): IO[Unit] =
+  def draw(f: (Double, Double) => Double): IO[Unit] =
     IO {
       val coords = (BigDecimal(-1.0) to BigDecimal(1.0) by BigDecimal(0.02)).map(_.toDouble)
-      val grid   = makeSquareGrid(coords)(freeSquarePlateEigenFunction(m, n))
+      val grid   = makeSquareGrid(coords)(f)
 
       showInConsole(grid)
     }

@@ -4,7 +4,7 @@ import chladni.utils.GenEnrichment._
 import org.scalacheck._
 import EigenFunctions._
 
-object RandomDrawing extends App {
+object Superposition {
 
   // TODO would be cool to see what function actually gets generated in maths notation
   // i.e. u1(x) * u5(y) + 0.782 * u4(x) * u7(y) + ...
@@ -24,7 +24,5 @@ object RandomDrawing extends App {
       n     <- Gen.choose[Int](1, 10)
       coeff <- Gen.choose[Double](-1, 1)
     } yield (x: Double, y: Double) => coeff * u(m)(x) * u(n)(y)
-
-//  DrawToPNG.draw(f)("paul-test").unsafeRunSync()
 
 }
