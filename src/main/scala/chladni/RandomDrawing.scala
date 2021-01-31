@@ -8,13 +8,15 @@ object RandomDrawing extends App {
 
   // TODO would be cool to see what function actually gets generated in maths notation
 
-  def generateSuperpositionFunction(seed: Long): Either[String, (Double, Double) => Double] =
+  type ChladniFunction = (Double, Double) => Double
+
+  def generateSuperpositionFunction(seed: Long): Either[String, ChladniFunction] =
     genLinearCombination.sampleWithSeed(seed).toRight("could not generate function :(")
 
-  private def genLinearCombination: Gen[(Double, Double) => Double] =
+  private def genLinearCombination: Gen[ChladniFunction] =
     Gen.listOfN(10, genEigenFunction).map(fs => (x, y) => fs.foldLeft(0d)(_ + _(x, y)))
 
-  private def genEigenFunction: Gen[(Double, Double) => Double] =
+  private def genEigenFunction: Gen[ChladniFunction] =
     for {
       m     <- Gen.choose[Int](1, 10)
       n     <- Gen.choose[Int](1, 10)
