@@ -42,6 +42,24 @@ And here's a what a png output looks like (it has different parameters to the co
 
 <img src="https://github.com/stanosphere/chladni-plates/blob/main/pictures/5-7-hiish-res.png" width="400">
 
+And here's a random one where I've used a seed of the first few digits of pi: 314159
+
+<img src="https://github.com/stanosphere/chladni-plates/blob/main/pictures/314159.png" width="400">
+
+### Current Running modes
+
+#### Eigenmode
+This will draw an eigenfunction of the 2D biharmonic operator.
+I've chosen eigenfunctions of the form `u_m(x) * u_n(y) + u_n(x) * u_m(y) ` since these give rather pretty symmetrical results.
+
+#### Random
+Since the biharmonic operator is a linear operator any linear combination of eigenfunctions is also an eigenfunction.
+So I thought I'd just use [scalacheck](https://www.scalacheck.org/index.html)'s rather extensive generator library to do this.
+All I do is ask for a seed and then have scala check generate a superposition of 10 eigenfunctions with each term of the form `c * u_m(x) * u_n(y)`.
+- c is between -1 and 1 (inclusive)
+- m is between 1 and 10 (inclusive)
+- n is between 1 and 10 (inclusive)
+
 ## TODO
 - add ability to make a nice PNG (or something) instead of just spitting out to console
 - make the PNG lovely and colourful: like I could colour it by just the value of `w`
