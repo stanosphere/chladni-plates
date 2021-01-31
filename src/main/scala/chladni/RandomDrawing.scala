@@ -6,6 +6,8 @@ import EigenFunctions._
 
 object RandomDrawing extends App {
 
+  // TODO would be cool to see what function actually gets generated in maths notation
+
   val genEigenFunction: Gen[(Double, Double) => Double] =
     for {
       m     <- Gen.choose[Int](1, 10)
@@ -21,8 +23,12 @@ object RandomDrawing extends App {
 
   val seed = 65437
 
-  println { genLinearCombination.sampleWithSeed(seed).get(0.3, 0.4) }
-  println { genLinearCombination.sampleWithSeed(seed).get(0.3, 0.4) }
-  println { genLinearCombination.sampleWithSeed(seed).get(0.3, 0.4) }
+  val f = genLinearCombination.sampleWithSeed(seed).get
+
+  DrawToPNG.draw(f)("paul-test").unsafeRunSync()
+
+//  println { genLinearCombination.sampleWithSeed(seed).get(0.3, 0.4) }
+//  println { genLinearCombination.sampleWithSeed(seed).get(0.3, 0.4) }
+//  println { genLinearCombination.sampleWithSeed(seed).get(0.3, 0.4) }
 
 }

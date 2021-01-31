@@ -40,7 +40,7 @@ object Main extends IOApp {
       name       <- readLn
       _          <- putStrLn("Great! This might take a few seconds...")
       _          <- putStrLn("Like this code is not optimal at all lol")
-      placeSaved <- DrawToPNG.draw(m, n)(name)
+      placeSaved <- DrawToPNG.drawBasisFn(m, n)(name)
       _          <- putStrLn(s"Saved under $placeSaved")
 
     } yield ()
