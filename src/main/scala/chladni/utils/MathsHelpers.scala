@@ -1,4 +1,4 @@
-package chladni
+package chladni.utils
 
 import scala.math.abs
 

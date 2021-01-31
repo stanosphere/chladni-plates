@@ -1,8 +1,8 @@
-package chladni
+package chladni.draw
 
-import EigenFunctions.{w => freeSquarePlateEigenFunction}
-import MathsHelpers._
 import cats.effect.IO
+import chladni.EigenFunctions.{w => freeSquarePlateEigenFunction}
+import chladni.utils.MathsHelpers.areApproxEqual
 
 object DrawToConsole {
 

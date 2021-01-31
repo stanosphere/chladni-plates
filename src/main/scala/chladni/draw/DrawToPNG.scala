@@ -1,9 +1,10 @@
-package chladni
+package chladni.draw
 
 import java.awt.image.BufferedImage
 
-import better.files._
+import better.files.File
 import cats.effect.IO
+import chladni.EigenFunctions
 import javax.imageio.ImageIO
 
 object DrawToPNG {
