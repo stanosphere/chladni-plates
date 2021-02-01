@@ -1,6 +1,6 @@
 package chladni
 
-import chladni.MathsHelpers.{isEven, square}
+import chladni.utils.MathsHelpers.{isEven, square}
 
 import scala.math.{cos, cosh, sin, sinh, sqrt, Pi}
 

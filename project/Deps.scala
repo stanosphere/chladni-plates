@@ -22,7 +22,9 @@ object Deps {
       "io.circe"             %% "circe-parser"  % circeVersion,
       "io.circe"             %% "circe-generic" % circeVersion,
       // Refined Types
-      "eu.timepit"           %% "refined"       % refinedVersion
+      "eu.timepit"           %% "refined"       % refinedVersion,
+      // scala check
+      "org.scalacheck"       %% "scalacheck"    % "1.14.1"
     )
   }
 }
