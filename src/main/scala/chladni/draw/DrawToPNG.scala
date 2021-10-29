@@ -47,7 +47,7 @@ object DrawToPNG {
     }
 
   private def getColour(value: Double): Int =
-    math.floor(20 * value) match {
+    math.floor(50 * math.abs(value)) match {
       case 0  => 0x660051
       case 1  => 0x85004e
       case 2  => 0xa30041
@@ -59,7 +59,7 @@ object DrawToPNG {
       case 8  => 0xf26d91
       case 9  => 0xf68ab5
       case 10 => 0xf9a8d3
-      case _ => 0xfcc7ea
+      case _  => 0xfcc7ea
     }
 
 }
