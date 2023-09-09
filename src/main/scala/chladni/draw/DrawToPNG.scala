@@ -1,10 +1,10 @@
 package chladni.draw
 
-import java.awt.image.BufferedImage
-
 import better.files.File
 import cats.effect.IO
 import chladni.EigenFunctions
+
+import java.awt.image.BufferedImage
 import javax.imageio.ImageIO
 
 object DrawToPNG {
@@ -45,6 +45,22 @@ object DrawToPNG {
 
       jFile.getAbsolutePath
     }
+
+//  private def getColour(value: Double): Int =
+//    math.floor(50 * math.abs(value)) match {
+//      case 0 => 0x660051
+//      case 1 => 0x85004e
+//      case 2 => 0xa30041
+//      case 3 => 0xba042f
+//      case 4 => 0xcf0d18
+//      case 5 => 0xe23018
+//      case 6 => 0xe83436
+//      case 7 => 0xed5066
+//      case 8 => 0xf26d91
+//      case 9 => 0xf68ab5
+//      case 10 => 0xf9a8d3
+//      case _ => 0xfcc7ea
+//    }
 
   private def getColour(value: Double): Int =
     math.floor(50 * math.abs(value)) match {

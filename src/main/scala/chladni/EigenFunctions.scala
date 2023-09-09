@@ -2,7 +2,7 @@ package chladni
 
 import chladni.utils.MathsHelpers.{isEven, square}
 
-import scala.math.{cos, cosh, sin, sinh, sqrt, Pi}
+import scala.math._
 
 object EigenFunctions {
   // an eigenfunction of the biharmonic operator for a square plate with open edges
@@ -28,9 +28,15 @@ object EigenFunctions {
    * the official maple code to calculate k_m:
    * fsolve(tan(x) + tanh(x) = 0, x = m * Pi / 2 - Pi / 4)
    * fsolve(tan(x) - tanh(x) = 0, x = (m-1/2) * Pi / 2)
-   * But since for x > 3, tanh(x) > 0.99 I'm just gonna use an approximation. Sue me
+   * But since for x > 3, tanh(x) > 0.99 I'm just gonna use an approximation. Sue m
+   *
+   * this expression hides a lot of complexity
+   * the even solutions should be -pi/4 + n * pi
+   * the odd solutions should be pi/4 + n * pi
+   * this expression actually captures both of those cases
+   * to see why imagine subbing in m = 2 * n for even solutions
+   * and m = 2 * n + 1 for odd solutions
    */
   private def k(m: Int): Double =
-    if (isEven(m)) m * Pi / 2 - Pi / 4
-    else (m - 1 / 2) * Pi / 2
+    m * Pi / 2 - Pi / 4
 }
